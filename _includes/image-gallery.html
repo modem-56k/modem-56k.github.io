@@ -8,7 +8,7 @@
 
 <ul id="external-image-gallery-{{ include.folder | replace: '/', '-' }}" class="image-gallery"></ul>
 
-<script>
+<script defer>
 $(document).ready(function() {
     // GitHub API URL for the image folder
     const apiUrl = "https://api.github.com/repos/modem-56k/img/git/trees/main?recursive=1";
