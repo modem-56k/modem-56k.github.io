@@ -37,24 +37,13 @@ tr {
 /* 表格单元格的样式 */
 td, th {
     padding: 8px 12px; /* 内边距 */
-    border-bottom: 1px solid #dcdcdc; /* 底部边框 */
+    border: 1px solid #dcdcdc; /* 底部边框 */
     text-align: left; /* 文本对齐方式 */
     vertical-align: middle; /* 垂直对齐方式 */
 }
 
-/* 最后一行的单元格的样式，去掉底部边框 */
-tr:last-child td {
-    border-bottom: none;
-}
-
-/* 表格单元格中图标的样式 */
-td img, th img {
-    margin-right: 5px; /* 右边距 */
-    vertical-align: middle; /* 垂直对齐方式 */
-}
-
-/* 为表格添加一个hover效果，使行在鼠标悬停时高亮 */
-tr:hover {
+/* 为表格添加一个hover效果，使单元格在鼠标悬停时高亮 */
+td:hover {
     background-color: #f5f5f5;
 }
 
