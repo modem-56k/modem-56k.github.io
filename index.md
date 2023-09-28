@@ -4,6 +4,73 @@ title: 56K小猫 - 航通社
 image: '/images/pages/about.jpeg'
 ---
 
+<style type="text/css">
+/* 基本表格样式 */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px; /* 圆角 */
+    overflow: hidden;
+    background-color: #ffffff; /* 背景色，您可以根据需要更改 */
+}
+
+/* 表头和表体的样式 */
+thead, tbody {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* 固定布局 */
+}
+
+/* 表头的样式 */
+thead {
+    background-color: #e5e5e5; /* 表头背景色 */
+}
+
+/* 表格行的样式 */
+tr {
+    display: table-row;
+    width: 100%;
+}
+
+/* 表格单元格的样式 */
+td, th {
+    padding: 8px 12px; /* 内边距 */
+    border-bottom: 1px solid #dcdcdc; /* 底部边框 */
+    text-align: left; /* 文本对齐方式 */
+    vertical-align: middle; /* 垂直对齐方式 */
+}
+
+/* 最后一行的单元格的样式，去掉底部边框 */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* 表格单元格中图标的样式 */
+td img, th img {
+    margin-right: 5px; /* 右边距 */
+    vertical-align: middle; /* 垂直对齐方式 */
+}
+
+/* 根据设计图，您可能需要为某些特定列添加特定样式，例如设置宽度、文本对齐方式等 */
+/* 这里是一些示例： */
+td:nth-child(1), th:nth-child(1) {
+    width: 10%; /* 设置宽度 */
+}
+
+td:nth-child(2), th:nth-child(2) {
+    width: 20%; /* 设置宽度 */
+}
+
+/* ... 根据需要继续添加 */
+
+/* 为表格添加一个hover效果，使行在鼠标悬停时高亮 */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+</style>
+
 | 月   | 1                | 2                | 3                | 4                | 5                | 6                | 7                | 8                | 9                | 10               | 11                 | 12                 |
 | ---- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ------------------ | ------------------ |
 | 2023 | [一月](/2023/01) | [二月](/2023/02) | [三月](/2023/03) | [四月](/2023/04) | [五月](/2023/05) | [六月](/2023/06) | [七月](/2023/07) | [八月](/2023/08) | [九月](/2023/09) | [十月](/2023/10) | [十一月](/2023/11) | [十二月](/2023/12) |
