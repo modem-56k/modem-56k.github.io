@@ -8,6 +8,7 @@ image: '/images/pages/about.jpeg'
 /* 基本表格样式 */
 table {
     width: 100%;
+    border: 1px solid #e5e5e5;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 10px; /* 圆角 */
@@ -51,18 +52,6 @@ td img, th img {
     margin-right: 5px; /* 右边距 */
     vertical-align: middle; /* 垂直对齐方式 */
 }
-
-/* 根据设计图，您可能需要为某些特定列添加特定样式，例如设置宽度、文本对齐方式等 */
-/* 这里是一些示例： */
-td:nth-child(1), th:nth-child(1) {
-    width: 10%; /* 设置宽度 */
-}
-
-td:nth-child(2), th:nth-child(2) {
-    width: 20%; /* 设置宽度 */
-}
-
-/* ... 根据需要继续添加 */
 
 /* 为表格添加一个hover效果，使行在鼠标悬停时高亮 */
 tr:hover {
