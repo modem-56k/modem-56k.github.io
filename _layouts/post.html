@@ -30,6 +30,20 @@ layout: default
         </div>
 
         <hr>
+
+
+<style>
+h3 {
+    cursor: pointer;
+}
+h3:before {
+    content: "▸ ";
+    transition: transform 0.3s ease-in-out;
+}
+h3.active:before {
+    content: "▾ ";
+}
+</style>
 <script src="/js/jquery-3.7.1.min.js"> </script>
 <script>
 $(document).ready(function() {
@@ -37,16 +51,20 @@ $(document).ready(function() {
     $('h3 + *').hide();
     // 展开第一个内容区域
     $('h3:first + *').show();
+    $('h3:first').addClass('active');
 
     // 设置点击事件
     $('h3').click(function() {
         // 如果点击的标题下的内容已展开，则折叠它
         if ($(this).next().is(':visible')) {
             $(this).next().slideUp();
+            $(this).removeClass('active');
         } else {
             // 否则，折叠所有内容，然后展开点击的标题下的内容
             $('h3 + *').slideUp();
+            $('h3').removeClass('active');
             $(this).next().slideDown();
+            $(this).addClass('active');
         }
     });
 });
