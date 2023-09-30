@@ -31,6 +31,27 @@ layout: default
 
         <hr>
 
+<script>
+$(document).ready(function() {
+    // 折叠所有的内容区域
+    $('h2 + *').hide();
+    // 展开第一个内容区域
+    $('h2:first + *').show();
+
+    // 设置点击事件
+    $('h2').click(function() {
+        // 如果点击的标题下的内容已展开，则折叠它
+        if ($(this).next().is(':visible')) {
+            $(this).next().slideUp();
+        } else {
+            // 否则，折叠所有内容，然后展开点击的标题下的内容
+            $('h2 + *').slideUp();
+            $(this).next().slideDown();
+        }
+    });
+});
+</script>
+
   <!--      {% include disqus.html %}    -->
 
 <script src="https://beaudar.lipk.org/client.js"
