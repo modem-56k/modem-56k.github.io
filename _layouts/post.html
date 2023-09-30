@@ -66,6 +66,8 @@ $(document).ready(function() {
             $(this).next().slideDown();
             $(this).addClass('active');
         }
+        // 将页面滚动到被点击的标题
+        this.scrollIntoView({behavior: 'smooth', block: 'start'});
     });
 });
 </script>
