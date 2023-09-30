@@ -6,23 +6,22 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-name:             照片 - 56k 小猫
-title:            照片
-longtitle:        照片 - 56k 小猫
-author:           James Li
-email:            i@lishuhang.me
-description:       社长的照片日记
-url:              'https://56k.lishuhang.me/'
-# baseurl:          '/'
-rss:              RSS
+name:	56k 小猫
+title:		56k 小猫
+longtitle:	56k 小猫 - 航通社
+author:	James Li
+email:	i@lishuhang.me
+description:	航通社社长的照片日记
+url:		'https://56k.lishuhang.me/'
+# baseurl:		'/'
+rss:		RSS
 
 favicon_path:     /favicon.ico
 
-twitter:     'lishuhang'
-github:      'lishuhang'
-instagram:   'lishuhang'
-facebook:    'lishuhang'
-disqus: lishuhang
+twitter:	'lishuhang'
+github:	'lishuhang'
+instagram:	'lishuhang'
+facebook:		'lishuhang'
 google_analytics: UA-17809464-2
 
 markdown:  kramdown
