@@ -6,37 +6,46 @@
     .image-gallery li a img {width: 100%; display: block;}
 </style>
 
-<ul id="external-image-gallery-{{ include.folder | replace: '/', '-' }}" class="image-gallery"></ul>
+<ul id="external-image-gallery" class="image-gallery"></ul>
 
 <script defer>
 $(document).ready(function() {
-    // GitHub API URL for the image folder
-    const apiUrl = "https://api.github.com/repos/modem-56k/img/git/trees/main?recursive=1";
-    const folder = "{{ include.folder }}";
+    // 获取当前页面的 URL
+    const currentPageUrl = window.location.href;
 
-    // Fetch the list of files from GitHub
-    $.getJSON(apiUrl, function(data) {
-        const imageFiles = data.tree.filter(file => {
-            return file.path.startsWith(folder) && (file.path.endsWith(".jpg") || file.path.endsWith(".jpeg"));
-        });
+    // 从 URL 中提取年份和月份
+    const yearMonthRegex = /\/(\d{4})\/(\d{1,2})\//;
+    const match = yearMonthRegex.exec(currentPageUrl);
 
-        // Generate the HTML for each image
-        imageFiles.forEach(file => {
-            const imageUrl = `https://raw.githubusercontent.com/modem-56k/img/main/${file.path}`;
-            const filename = file.path.split("/").pop().split(".")[0];
+    if (match && match.length >= 3) {
+        const year = match[1];
+        const month = match[2].padStart(2, '0'); // 确保月份是两位数
 
-            const imageElement = `
-                <li>
-                    <a href="${imageUrl}" title="${filename}" target="_blank">
-                        <img src="//images.weserv.nl/?url=${imageUrl}&w=300&h=300&output=jpg&q=50&t=square" alt="${filename}" title="${filename}" />
-                        <span>${filename}</span>
-                    </a>
-                </li>
-            `;
+        // 构建 JSON 文件的 URL
+        const jsonUrl = `https://raw.githubusercontent.com/modem-56k/img/main/${year}/${month}/list.json`;
 
-            // Append the image to the gallery
-            $("#external-image-gallery-{{ include.folder | replace: '/', '-' }}").append(imageElement);
-        });
-    });
+        // Fetch the list of image file names from the JSON file
+        fetch(jsonUrl)
+            .then(response => response.json())
+            .then(files => {
+                files.forEach(file => {
+                    // 构建图片的完整 URL
+                    const imageUrl = `https://raw.githubusercontent.com/modem-56k/img/main/${year}/${month}/${file}`;
+                    const filename = file.split("/").pop().split(".")[0];
+
+                    const imageElement = `
+                        <li>
+                            <a href="${imageUrl}" title="${filename}" target="_blank">
+                                <img src="//images.weserv.nl/?url=${encodeURIComponent(imageUrl)}&w=300&h=300&output=jpg&q=50&t=square" alt="${filename}" title="${filename}" />
+                                <span>${filename}</span>
+                            </a>
+                        </li>
+                    `;
+
+                    // 将图片元素添加到画廊中
+                    $("#external-image-gallery").append(imageElement);
+                });
+            });
+    }
 });
 </script>
